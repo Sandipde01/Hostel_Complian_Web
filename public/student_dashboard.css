@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('Bg.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+
+}
+
+.logo {
+   font-size: 2em;
+   color: rgb(215, 213, 203);
+   user-select: none;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.navigation .btnLogin-popup {
+    width: 120px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navigation .btnLogin-popup:hover {
+    background: #fff;
+    color: #162938;
+}
+
+.navigation .btnSignup-popup {
+    width: 120px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navigation .btnSignup-popup:hover {
+    background: #fff;
+    color: #162938;
+}
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     overflow: hidden; 
+}
+
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;   
+}
+
+
+.form-box h2 {
+    font-size: 2em;
+    color: #6391b4;
+    text-align: center;   
+    margin: 30px 0;
+}
+
+.title {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+}
+
+.title label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%); 
+    font-size: 1.5em;
+    color: rgb(233, 233, 17);
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;   
+}
+
+.title input:focus~label,
+.title input:valid~label {
+    top: -5px;
+}
+
+.title input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: rgb(242, 242, 56);
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.title .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: rgb(249, 249, 40);
+    line-height: 57px;
+}
+
+.title {
+    font-size: 1rem;
+    color: rgb(240, 240, 54);
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;    
+}
+
+.title label input {
+      accent-color: rgb(228, 228, 78);
+      margin-right: 3px;
+}
+
+.title a {
+    color: rgb(235, 235, 43);
+    text-decoration: none;
+}
+
+.title a:hover {
+    text-decoration: underline;
+}
+
+
+.logo img {
+    height: 4rem;
+    width: 6rem;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 100px;
+}
+
+.close-btn{
+    cursor: pointer;
+}
+
+.form-box  h2{
+    position: relative;
+    bottom: 72px;
+    color: #79ffcf;
+    font-size: 3rem;
+    
+}
+
+label b{
+    color: white;
+}

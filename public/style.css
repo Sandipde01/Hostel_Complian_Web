@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    /* overflow-x: hidden; */
+}
+
+/* nav {
+    overflow: hidden;
+}
+
+nav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: none;
+    color: rgb(151, 151, 151);
+    transition: 0.2s;
+} */
+
+.logo {
+    float: left;
+}
+
+.options {
+    float: right;
+}
+
+.wrapper {
+    background: url(Bg.jpg) no-repeat center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    min-width: 1024px;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    color: white;
+}
+
+
+.title {
+   margin-top: 30px;
+    width: 600px;
+    height: 90px;
+    background-color: rgb(229,3,116,0.201);
+    padding: 1rem 1.5rem;
+    border-radius: 3rem;
+    font-size: 50px;
+    text-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_text h4 {
+    font-family: inherit;
+    color: rgb(255, 240, 221);
+    text-wrap: wrap;
+
+}
+
+.button {
+    height: 200px;
+    width: 500px;
+margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+
+}
+
+#btn1 {
+    width: 8rem;
+    border-radius: 20px;
+}
+
+#btn2 {
+    width: 8rem;
+    border-radius: 20px;
+    background-color: rgb(255, 51, 33);
+    
+}
+
+#btn2:hover{
+    background-color: rgba(255, 51, 33, 0.765);;
+}
+
+.container_text{
+    margin-top: 20px
+}
+/* Blink************** */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
+
+/* .title {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+/* .title p {
+  font-size: 3rem;
+  padding: 0.5rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  overflow: hidden;
+}
+.title p span.typed-text {
+  font-weight: normal;
+  color: #dd7732;
+}*/
+
+.title p span.cursor {
+  display: inline-block;
+  background-color: #f12121;
+  margin-left: 0.1rem;
+  width: 3px;
+  animation: blink 1s infinite;
+  /* height: 50px; */
+  justify-content: center;
+  align-items: center;
+}
+.title p span.cursor.typing {
+  animation: none;
+} 
+@keyframes blink {
+  0%  { background-color: #ccc; }
+  49% { background-color: #ccc; }
+  50% { background-color: transparent; }
+  99% { background-color: transparent; }
+  100%  { background-color: #ccc; }
+}
+
+
+
+/* Navigation  */
+.navigation{
+    margin-top: 17px;
+    margin-right: 33px;
+}
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.navigation .btnLogin-popup {
+    width: 120px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navigation .btnLogin-popup:hover {
+    background: #fff;
+    color: #162938;
+}
+
+.navigation .btnSignup-popup {
+    width: 120px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navigation .btnSignup-popup:hover {
+    background: #fff;
+    color: #162938;
+}
+
+
+/* Logo re-size */
+
+.logo img {
+    height: 4rem;
+    width: 6rem;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+}

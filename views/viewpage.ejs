@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="student_dashboard.css">
+</head>
+
+<body>
+
+    <!-- <h1>Student Detials</h1>
+    <p>
+        <%=info.data.name %>
+    </p>
+    <p>
+        <%=info.data.roll %>
+    </p>
+    <p>
+        <%=info.data.email %>
+    </p> -->
+
+
+
+
+    <header>
+        <div class="logo">
+            <img src="LOGO.jpeg" alt="">
+            <a href="http://localhost:5000/home"></a>
+        </div>
+        <nav class="navigation">
+            <a href="http://localhost:5000/home">Home</a>
+            <!-- <form method="get" action="http://localhost:5000/viewusercomplain/<%=info.data.id %>">
+                <button>complain</button>
+            </form> -->
+            <a href="http://localhost:5000/contact">Contact</a>
+            <a  href="http://localhost:5000/viewusercomplain/<%=info.data.id %>">complain</a>
+        </nav>
+    </header>
+
+
+
+
+    <div class="wrapper">
+
+
+        <div class="form-box login">
+            <h2>Student Info</h2>
+            <form action="#">
+                <div class="title">
+                    <span class="icon"></span>
+
+                    <label> <b>Student name</b>: <%=info.data.name %>  </label>
+
+                </div>
+                <div class="title">
+                    <span class="icon"></span>
+                    <label><b>Student ID</b>: <%=info.data.id %></label>
+
+                </div>
+
+                <div class="title">
+                    <label><b>Room No</b> : <%=info.data.room %> </label>
+
+                </div>
+
+
+            </form>
+        </div>
+
+    </div>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

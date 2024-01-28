@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+            font-family: sans-serif;
+
+        }
+
+        body {
+            min-height: 100vh;
+            /* background: url(Bg.jpg) no-repeat center;  */
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+        }
+
+        main.table {
+            width: 80vw;
+            height: 102vh;
+            background-color: #fff5;
+
+            backdrop-filter: blur(5px);
+            box-shadow: 0 .4rem .8rem #0005;
+            border-radius: .8rem;
+        }
+
+        .table__header {
+            width: 100%;
+            height: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 500px;
+            background-color: #fff4;
+            padding: .8rem 1rem;
+        }
+
+        .table__body {
+            width: 95%;
+            max-height: calc(89% - 1.6rem);
+            background-color: #fffb;
+
+            margin: .8rem auto;
+            border-radius: .6rem;
+
+
+            overflow: auto;
+        }
+
+        .table__body::-webkit-scrollbar {
+            width: 0.5rem;
+            height: 0.5rem;
+
+        }
+
+        .table__body::-webkit-scrollbar-thumb {
+            border-radius: .5rem;
+            background-color: #0004;
+            visibility: hidden;
+
+        }
+
+        .table__body:hover::-webkit-scrollbar-thumb {
+            visibility: visible;
+        }
+
+        table {
+            width: 100%;
+
+        }
+
+        table,
+        th,
+        td {
+            border-collapse: collapse;
+            padding: 1rem;
+            text-align: left;
+
+        }
+
+        thead th {
+            position: sticky;
+            top: 0;
+            left: 0;
+            background-color: #d5d1defe;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #0000000b;
+        }
+
+        tbody tr:hover {
+            background-color: #fff6;
+        }
+
+        .status {
+            padding: .4rem 0;
+            border-radius: 2rem;
+            text-align: center;
+        }
+
+        .status.solved {
+            background-color: #86e49d;
+            color: #006b21;
+        }
+
+        .status.inprocess {
+            background-color: rgb(201, 201, 74);
+            color: rgb(7, 67, 7);
+
+        }
+
+        .status.takeaction {
+            background-color: #d893a3;
+            color: #b30021;
+        }
+
+
+
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #6391b4e3;
+            /* Semi-transparent black background for better readability */
+            border-radius: 8px;
+            margin-bottom: 200px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #fff;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.1);
+            /* Semi-transparent white background for input fields */
+            color: #090909;
+        }
+
+        /* textarea {
+    resize: vertical;
+} */
+
+        button {
+            background-color: #53ef58;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 100px;
+            width: 100px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .complaint-box {
+            border: 1px solid #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #6391b4;
+            /* Change the background color to white */
+        }
+
+        .delete-button {
+            background-color: #ff3333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 5px;
+            cursor: pointer;
+            margin-left: auto;
+            /* Move delete button to the right */
+        }
+
+        #new-complaint-button {
+            margin-left: 500px;
+        }
+
+        .delete-button:hover {
+            background-color: #cc0000;
+        }
+
+        #head {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 1000px) {
+            td:not(:first-of-type) {
+                min-width: 12.1rem;
+            }
+        }
+
+        h2 {
+            color: lightyellow;
+        }
+
+        .navigation {
+            margin-top: 17px;
+            margin-right: 33px;
+        }
+
+        .navigation a {
+            position: relative;
+            font-size: 1.1em;
+            color: #ea1818;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 40px;
+        }
+
+        .navigation a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: 3px;
+            background: #38df00;
+            border-radius: 5px;
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: transform .5s;
+        }
+
+        .navigation a:hover::after {
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="left-section">
+            <h2>Enter your Complain Details</h2>
+
+            <div class="left-form-section">
+                <form method="post" action="http://localhost:5000/complaine">
+                    <label for="number">Student id</label>
+                    <input type="number" name="id" class="id form" placeholder="Enter your id" required /><br>
+                    <label for="message">Complaine type</label>
+                    <input type="message" name="ctype" class="ctype form" placeholder="Enter complaine type"
+                        required /><br>
+                    <label for="message">Complaine</label>
+                    <!-- <input type="message" name="description" class="password form" placeholder="Enter complaine" /> -->
+                    <textarea name="description" rows="10" cols="20" placeholder="Enter Your Complain"></textarea>
+                    <br>
+                    <div class="btns">
+                        <button class="signinbtn btn">Submit</button>
+                        <!-- <button class="btn2 btn">Log Out</button> -->
+                        <!-- <button class="data btn">Get Data</button> -->
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <main class="table">
+        <section class="table__header">
+            <h1 id="head">Complaint Table History</h1>
+           
+            <div class="options">
+                <nav class="navigation">
+                 
+                     <a id="home" href="http://localhost:5000/home">Home</a>
+                </nav>
+            </div>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <!-- <th> Student id </th>
+
+                                <th> Complaint Date </th> -->
+                        <th> Complaint Type </th>
+                        <th> Description </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    <!-- <%  for(let i=0;i<data.length;i++){ %>
+                        <tr>
+                            <td><strong>
+                                    <%=data[i].type %>
+                                </strong></td>
+                            <td>
+                                <%= data[i].description%>
+                            </td>
+
+                            <td>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                        <% } %> -->
+
+                    <% data.map((el,index)=>{ %>
+                        <tr>
+                            <td><strong>
+                                    <%=el.type %>
+                                </strong></td>
+                            <td>
+                                <%= el.description%>
+                            </td>
+
+                            <td>
+                                <form method="post" action="http://localhost:5000/delete/<%= id %>/<%= index %>">
+                                    <button>Delete</button>
+                                </form>
+
+                            </td>
+                        </tr>
+
+                        <% }) %>
+
+
+
+
+                            <!-- <tr>
+
+                                <td> User1 </td>
+
+                                <td> 22.04.23 </td>
+                                <td><strong> Electricity Issue </strong></td>
+                                <td> Description </td>
+
+                            </tr> -->
+                            <!-- <tr>
+                                <td> User2 </td>
+
+                                <td> 08.06.23 </td>
+                                <td><strong> Water Issue </strong></td>
+                                <td> Description </td>
+
+                            </tr>
+                            <tr>
+                                <td> User3 </td>
+                                <td> 12.11.23 </td>
+                                <td><strong> Noise Issue </strong></td>
+                                <td> Description </td>
+
+                            </tr> -->
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
